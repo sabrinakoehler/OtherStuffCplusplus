@@ -1,0 +1,72 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+   string userChoice = " ";
+   float userGPA = 0.0;
+
+   cout << "Enter your major: ";                     
+   getline(cin, userChoice); 
+   cout << userChoice;  
+   cout << endl;
+   cout << "Enter your gpa: ";                     
+   cin  >> userGPA; 
+   cout << userGPA;  
+   cout << endl;
+   
+
+   if (userChoice == "computer science") {
+       if (userGPA >= 3.5) {
+           cout << "I think you go to grad school to get a PhD in CS.";
+           cout << endl;
+       } 
+       else if (userGPA >= 3.0 && userGPA < 3.5) {
+           cout << "I think you should get an MS in CS while working in the field.";
+           cout << endl;
+       }
+       else if (userGPA < 3.0) {
+           cout << "There are lots of amazing jobs in CS.";
+           cout << endl;
+       }
+else if (userChoice == "business") {
+       if (userGPA > 3.3) {
+            cout << "I think an MBA is in your future!";
+            cout << endl;  
+       }
+       else if (userGPA >= 2.0) {
+           cout << "Having a college degree is a real benefit to your marketability.";
+           cout << endl;
+       }
+       else if (userGPA < 2.0) {
+           cout << "You really need to work on your grades!";
+           cout << endl;
+       }
+   }
+   else if (userChoice == "premed") {
+       if (userGPA > 3.7) {
+            cout << "Med school, here you come!";
+            cout << endl;  
+       }                                
+      else if (userGPA >= 2.0) {
+           cout << "Having a college degree is a real benefit to your marketability.";
+           cout << endl;
+       }
+       else if (userGPA < 2.0) {
+           cout << "You really need to work on your grades!";
+           cout << endl;
+       }
+   }
+   else {
+       if (userGPA >= 2.0) {
+           cout << "Having a college degree is a real benefit to your marketability.";
+           cout << endl;
+       }
+       else if (userGPA < 2.0) {
+           cout << "You really need to work on your grades!";
+           cout << endl;
+       }
+   }
+
+   return 0;
+}
