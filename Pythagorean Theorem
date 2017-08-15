@@ -1,0 +1,190 @@
+Exercise 9.1
+"Using the Pythagorean Theorem, calculate the hypotenuse of a right triangle
+given the length of the two shorter sides. Be certain to use the square and
+squareRoot functions. Ask the user if s/he wants to keep entering the data;
+if "Yes" then continue prompting and calculation. Assume no sides are negative.
+This might involve some research on your part! Use the following sample
+as a guide:
+
+Enter side A: 3
+Enter side B: 4
+Side C is 5
+Continue? Yes
+Enter side A: 33
+Enter side B: 44
+Side C is 55
+Continue? no"
+
+//CODE STARTS HERE//
+#include <iostream>
+#include <iomanip>
+#include <string>
+using namespace std;
+
+float squareRoot(float s) {
+    float xn;
+    if (s == 0.0) {
+        xn = 0.0;
+    }
+    else {
+        xn = s / 2.0;
+        int counter = 1;
+        while (counter <= 10) {
+            xn = (xn + (s/xn))/2.0;
+            counter = counter + 1;
+        }
+    }
+    return xn;
+}
+float square(float what) {
+    float answer = what*what;
+    return answer;
+}
+
+int main () {
+    float sideA, sideB, sideC;
+    string answer = "yes";
+      while (answer == "yes") {
+        cout << "Enter side A: ";
+        cin >> sideA;
+        cout << sideA << endl;
+        cout << "Enter side B: ";
+        cin >> sideB;
+        cout << sideB << endl;
+        sideC = squareRoot(square(sideA) + square(sideB));
+    cout << "Side C is " << sideC << endl;
+    cout << "Continue? ";
+    cin >> answer;
+    cout << answer << endl;
+   }
+   return 0;
+}
+//CODE ENDS HERE//
+
+RESULTS:
+Enter side A: 3
+Enter side B: 4
+Side C is 5
+Continue? yes
+Enter side A: 33
+Enter side B: 44
+Aide C is 55
+Continue? no
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+
+Exercise 9.2
+"The root mean square is a specific kind of average which is used for various
+purposes. It is given by the formula:
+
+SqrRt(x2/1 + x2/1 ... + x2/n / n)
+
+This means that a sequence of values is squared and summed,
+then divided by the count of the values; the entire calculation
+is then square-rooted. Ask the user for input; stop when the user enters -1.
+Use the following sample runs to design your program:
+
+Enter a positive number: 1
+Enter a positive number: 2
+Enter a positive number: 3
+Enter a positive number: 4
+Enter a positive number: 5
+Enter a positive number: -1
+The root mean square is 3.32
+
+The answer is calculated by calculating (1^2 + 2^2 + 3^2 + 4^2 + 5^2)/ 5
+and then taking the square root of the result. Here is another example:
+
+Enter a positive number: 88
+Enter a positive number: 45
+Enter a positive number: 37
+Enter a positive number: 2
+Enter a positive number: 55
+Enter a positive number: 38
+Enter a positive number: 96
+Enter a positive number: 32
+Enter a positive number: -1
+The root mean square is 56.85
+
+If there is no data available, you have to specify that:
+
+Enter a positive number: -1
+No data"
+
+//CODE STARTS HERE//
+#include <iostream>
+#include <string>
+using namespace std;
+
+float squareRoot(float s) {
+    float xn;
+    if (s==0) {
+        xn = 0;
+    }
+    else {
+        xn = s / 2.0;
+        int counter = 1;
+        while (counter <= 10) {
+            xn = (xn + (s/xn)) / 2.0;
+            counter = counter + 1;
+        }
+    }
+    return xn;
+}
+int square(int what) {
+    return what*what;
+}
+
+int main () {
+    int num = 1, count = 0;
+    float total = 0;
+    while (num > 0) {
+        cout << "Enter a positive number: ";
+        cin >> num;
+        cout << num << endl;
+        if (num > 0) {
+            int squared = square(num);
+            total = total + squared;
+            count = count + 1;
+        }
+    }
+    if (count == 0) {
+        cout << "No data" << endl;
+    }
+    else {
+        float rms, div;
+        div = total/count;
+        rms = squareRoot(div);
+        cout << "The root mean square is ";
+        cout << rms << endl;
+    }
+    return 0;
+}
+//CODE ENDS HERE//
+RESULTS: (run #1)
+Enter a positive number: 1
+Enter a positive number: 2
+Enter a positive number: 3
+Enter a positive number: 4
+Enter a positive number: 5
+Enter a positive number: -1
+The root mean square is:  3.31662
+
+RESULTS: (run #2)
+Enter a positive number: 88
+Enter a positive number: 45
+Enter a positive number: 37
+Enter a positive number: 2
+Enter a positive number: 55
+Enter a positive number: 38
+Enter a positive number: 96
+Enter a positive number: 32
+Enter a positive number: -1
+The root mean square is: 56.8452
+
+RESULTS: (run #3)
+Enter a positive number: -1
+No data
+
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
