@@ -1,0 +1,26 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    int userInput = 0;
+    float userDecimal = 0.0;
+
+    cin>>userInput;
+    cout<<"Please enter a number (5 to 30): "<<userInput<<endl;
+    
+    if (userInput < 5 || userInput > 30) {
+        cout<<"Please follow the directions!"<<endl;
+    } else {
+        for (int count = 1; count <= userInput; count++){
+            cout << "1" << "/" << count;
+            userDecimal = 1.00 / count;
+            userDecimal = userDecimal + 0.001;
+
+            cout.setf(ios::fixed, ios::floatfield);
+            cout.precision(2);
+            cout << " is "<< userDecimal << endl;
+        }
+    }
+    return 0;
+}
