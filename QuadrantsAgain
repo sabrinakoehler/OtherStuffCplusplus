@@ -1,0 +1,177 @@
+Exercise 7.1
+Write a program that asks the user for integers; stop when the user
+enters a zero (0). For each nonzero number, count how many even,
+odd, positive and negative values are entered. Display the results
+as shown below:
+1
+2
+3
+4
+5
+6
+7
+8
+-9
+-10
+-11
+-12
+0
+You entered: 
+6 even numbers
+6 odd numbers
+8 positive numbers
+4 negative numbers
+
+///
+
+#include <iostream>
+#include <string>
+using namespace std;
+int main () {
+    int answer = 9999;
+    int numEven = 0, numOdd = 0;
+    int numPos = 0, numNeg = 0;
+    
+    while (answer != 0) {
+        cin>>answer;
+        cout<<answer <<endl;
+        if (answer != 0) {
+            if ((answer % 2) == 0) {
+                numEven = numEven + 1;
+            }
+            if ((answer % 2) !=0) {
+                numOdd = numOdd + 1;
+            }
+            if (answer < 0) {
+                numNeg = numNeg + 1;
+            }
+            if (answer > 0) {
+                numPos = numPos + 1;
+            }
+         }
+      }
+    cout << "You entered: " << endl;
+        cout << numEven << " even numbers" << endl;
+        cout << numOdd << " odd numbers" << endl;
+        cout << numPos << " positive numbers" << endl;
+        cout << numNeg << " negative numbers" << endl;
+
+    return 0;
+}
+
+
+INPUT:
+-1
+1
+-2
+2
+-3
+3
+0
+OUTPUT:
+-1
+1
+-2
+2
+-3
+3
+0
+You entered:
+2 even numbers
+4 odd numbers
+3 positive numbers
+3 negative numbers
+////////////////////////////////////////////////////////////
+Exercise 7.2
+Write a program that asks the user for points on a graph.
+Determine what quadrant the points are in and display an appropriate
+message. Ask if the user wants to continue, and if the answer is "Yes"
+then continue; otherwise do not. Count how many points were
+in each quadrant and display the count at the end. If the points on 
+either axis, display a message and do not count it. A sample
+run is shown below.
+
+Enter x: 1
+Enter y: 1
+Quadrant I
+Continue ('Yes' or 'No')? Yes
+Enter x: -1
+Enter y: 1
+Quadrant II
+Continue ('Yes' or 'No')? Yes
+Enter x: -1
+Enter y: -1
+Quadrant III
+Continue ('Yes' or 'No')? Yes
+Enter x: 1
+Enter y: -1
+Quadrant IV
+Continue ('Yes' or 'No')? Yes
+Enter x: 0
+Enter y: 100
+Axis points are skipped
+Continue ('Yes' or 'No')? No
+Quadrant I had 1 point(s)
+Quadrant II had 1 point(s)
+Quadrant III had 1 point(s)
+Quadrant IV had 1 point(s)
+
+///
+
+#include <iostream>
+#include <string>
+using namespace std;
+int main () {
+    int x, y;
+
+    cout<<"Enter x: ";
+    cin>>x;
+    cout<<x << endl;
+    cout<<"Enter y: ";
+    cin>>y;
+    cout<<y << endl;
+
+    if ((x == 0) || (y == 0)) {
+        cout<<"Axis points are skipped." << endl;
+    }
+    else {
+        if ((x > 0) && (y > 0)) {
+            cout<<"Quadrant I" << endl;
+        }
+        if ((x < 0) && (y > 0)) {
+            cout<<"Quadrant II" << endl;
+        }
+        if ((x < 0) && (y < 0)) {
+            cout<<"Quadrant III" << endl;
+        }
+        if ((x > 0) && (y < 0)) {
+            cout<<"Quadrant IV" << endl;
+        }
+    }
+
+    return 0;
+}
+
+RUN #1
+Enter x: 1
+Enter y: 1
+Quadrant I
+
+RUN #2
+Enter x: -1
+Enter y: 1
+Quadrant II
+
+RUN #3
+Enter x: -1
+Enter y: -1
+Quadrant III
+
+RUN #4
+Enter x: 1
+Enter y: -1
+Quadrant IV
+
+
+
+////////////////////////////////////////////////////////////
