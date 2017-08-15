@@ -1,0 +1,164 @@
+To print a string with qutotaion marks
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main () {
+    string message;
+    message = "\"Hi there from the author!\"";      //Insert slashes in front of 
+    cout<<"The message is: ";                      // extra pair of qutotation marks
+    cout<<message<<endl;
+    return 0;
+}
+RESULTS
+The message is: "Hi there from the author!"
+
+
+In the example below:
+Note that instead of using cin >> message; you use a new program structure - a function call -
+which looks like this:
+getline(cin, fullName).
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main () {
+    string message;
+    cout<<"What is the message? ";
+    getline(cin, message);
+    cout<<"The message is: ";
+    cout<<message<<endl;
+    return 0;
+}
+
+RESULTS
+What is the message?
+The message is: Hello there from user input!
+
+In C++ problems occur with string functions when numbers are inputted. To fix this, you have
+to remove the control character from the input buffer as shown below:
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    int age;
+    string name;
+    cout<<"What is your age? ";
+    cin>>age;
+        cin.ignore(); //        <--the slashes removes the control character!
+    cout<<"What is your name? ";
+    getline(cin, name);
+    cout<<"Your age is: ";
+    cout<<age<<endl;
+    cout<<"Your name is: ";
+    cout<<name<<endl;
+return 0;
+
+}
+RESULTS
+What is your age? What is your name? Your age is: 21
+Your name is: Bob Johnson
+
+cin.ignore(); calls a function that removes the extra contorl character from the input buffer.
+Note that if you are writing programs in C++ that you will have to keep the extra control
+character issue in mind, otherwise your program might not operate correctly (i.e., cause
+a run-time error or "bug").
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Else if Statements
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    float bmi;
+    cout<<"What is the BMI? ";
+    cin>>bmi;
+    cout<<bmi<<endl;
+    if (bmi >= 30) {
+        cout<<"Obese" << endl;
+    }
+    else {
+        if ((bmi >= 25) && (bmi < 30)) {
+            cout<<"Overweight" << endl;
+        }
+        else {
+            if ((bmi >= 18.5) && (bmi < 25)) {
+                cout<<"Normal"<<endl;
+            }
+            else {
+                cout<<"Underweight" << endl;
+            }
+        }
+    }
+    return 0;
+}
+RESULTS
+What is the BMI? 11
+Underweight
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Built-in functions
+
+<cmath>
+
+1) pow = Raise base to the power of exp 
+
+Parameters:
+base: doubleexp:double
+
+Return type:
+double
+
+2) sqrt = Returns the square root of p1
+
+Parameters:
+p1: double
+
+Return type:
+double
+
+3) ceil = Round up p1
+
+Parameters:
+p1: double
+
+Return type:
+int
+
+4) floor = absolute value of p1
+
+Parameters:
+p1: double
+
+Return type:
+double
+
+Example:
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    double answer;
+    answer = sprt(82.3);
+    cout<<"The square root of 82.3 is ";
+    cout<<answer<<endl;
+    return 0;
+}
+RESULTS
+The square root of 82.3 is 9.07193
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+END OF C++ !
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
